@@ -1,49 +1,196 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<html lang="ja">
 
-		<link rel="stylesheet" href="css/reset.css">
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+<head>
+	<meta charset="utf-8">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/monokai.css">
+	<title>reveal.js – The HTML Presentation Framework</title>
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
+	<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+	<meta name="author" content="Hakim El Hattab">
+
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/reveal.css">
+	<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+	<!-- Theme used for syntax highlighting of code -->
+	<link rel="stylesheet" href="lib/css/monokai.css">
+
+	<!-- Printing and PDF exports -->
+	<script>
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.type = 'text/css';
+		link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+		document.getElementsByTagName('head')[0].appendChild(link);
+	</script>
+
+	<!--[if lt IE 9]>
+			<script src="lib/js/html5shiv.js"></script>
+			<![endif]-->
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- <section>Slide 1</section>
+				<section>Slide 2</section> -->
+			<section data-markdown data-separator="\n---\n$" data-separator-vertical="\n--\n">
+				<script type="text/template">
+## `Docker`+`Terraform`+`CircleCI`+`ECR`+`ECS`
+## で `CI/CD` ハンズオン
+---
+
+### 構成図
+![Sample image](Diagram.svg)
+---
+
+### 端的に表すと
+- Terraform
+  - インフラのコード化
+- Docker
+  - コンテナ型仮想化
+- ECS
+  - コンテナオーケストレーションサービス
+- CircleCI
+  - CIツール
+---
+
+### ざっくり説明
+- Terraform
+  - AWS, GCP等のクラウドインフラをコードとして定義できる
+    - 専用のUIでインフラを定義する場合と比較した場合のメリット
+      - Git等でコードのバージョン管理が可能
+      - 第三者による検証(コードレビュー)が可能
+      - コードの共有、再利用が可能
+      - 宣言的(⇔命令的)設定
+--
+- Docker
+  - ホストOS上で動作するプロセス
+    - アプリケーションが隔離される
+    - ゲストOS不要
+      - 軽量
+      - コスト削減
+    - Dockerが動作する環境であればどこでも動く
+      - 可搬性
+      - ベンダー非依存
+    - 環境構築のコード化
+      - Git等でコードのバージョン管理が可能
+      - 冪等性
+        - 各開発環境から本番環境まで、全く同じ環境を構築できる
+      - コードの共有、再利用が可能
+
+--
+
+- ECS(とECR)
+  - Elastic Container Service
+  - コンテナ化されたアプリケーションを簡単に実行およびスケールできる
+  - Fargateにより、インフラストラクチャ基盤の管理が不要
+
+--
+
+- CircleCI
+  - GitHub等と連携し、pushを検知して自動実行
+  - テスト自動実行
+  - Dockerで本番環境を再現しオートビルド
+---
+
+<div class="summary">
+
+- Terraform
+  - AWS, GCP等のクラウドインフラをコードとして定義できる
+    - 専用のUIでインフラを定義する場合と比較した場合のメリット
+      - Git等でコードのバージョン管理が可能
+      - 第三者による検証(コードレビュー)が可能
+      - コードの共有、再利用が可能
+      - 宣言的(⇔命令的)設定
+
+- Docker
+  - ホストOS上で動作するプロセス
+    - アプリケーションが隔離される
+    - ゲストOS不要
+      - 軽量
+      - コスト削減
+    - Dockerが動作する環境であればどこでも動く
+      - 可搬性
+      - ベンダー非依存
+    - 環境構築のコード化
+      - Git等でコードのバージョン管理が可能
+      - 冪等性
+        - 各開発環境から本番環境まで、全く同じ環境を構築できる
+      - コードの共有、再利用が可能
+
+- ECS(とECR)
+  - Elastic Container Service
+  - コンテナ化されたアプリケーションを簡単に実行およびスケールできる
+  - Fargateにより、インフラストラクチャ基盤の管理が不要
+
+- CircleCI
+  - GitHub等と連携し、pushを検知して自動実行
+  - テスト自動実行
+  - Dockerで本番環境を再現しオートビルド
+</div>
+					</script>
+			</section>
 		</div>
+	</div>
 
-		<script src="js/reveal.js"></script>
+	<script src="js/reveal.js"></script>
 
-		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
-			Reveal.initialize({
-				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true }
-				]
-			});
-		</script>
-	</body>
+	<script>
+		// More info https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			center: true,
+			hash: true,
+
+			transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+			// More info https://github.com/hakimel/reveal.js#dependencies
+			dependencies: [{
+					src: 'plugin/markdown/marked.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/markdown/markdown.js',
+					condition: function () {
+						return !!document.querySelector('[data-markdown]');
+					}
+				},
+				{
+					src: 'plugin/highlight/highlight.js',
+					async: true
+				},
+				{
+					src: 'plugin/search/search.js',
+					async: true
+				},
+				{
+					src: 'plugin/zoom-js/zoom.js',
+					async: true
+				},
+				{
+					src: 'plugin/notes/notes.js',
+					async: true
+				}
+			],
+			width: "100%",
+			height: "100%",
+			margin: 0,
+			minScale: 1,
+			maxScale: 1
+		});
+	</script>
+</body>
+
 </html>
